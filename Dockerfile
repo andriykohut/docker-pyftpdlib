@@ -10,4 +10,6 @@ RUN mkdir /ftp_root
 RUN mkdir /ftp_root/nobody
 RUN mkdir /ftp_root/user
 
+EXPOSE 21
+
 CMD python ftpd.py
