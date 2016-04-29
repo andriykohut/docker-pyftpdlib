@@ -19,6 +19,7 @@ def run_ftpd(user, password, host, port, anon):
 
     handler = FTPHandler
     handler.authorizer = authorizer
+    handler.permit_foreign_addresses = True
 
     server = FTPServer((host, port), handler)
     server.serve_forever()
