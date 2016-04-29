@@ -10,7 +10,8 @@ FTP_ROOT = '/ftp_root'
 
 def run_ftpd(user, password, host='127.0.0.1', port=21, anon=True):
     user_dir = os.path.join(FTP_ROOT, user)
-    os.mkdir(user_dir)
+    if not os.path.isdir(user_dir):
+        os.mkdir(user_dir)
     authorizer = DummyAuthorizer()
     authorizer.add_user(user, password, user_dir, perm="elradfmw")
     if anon:
