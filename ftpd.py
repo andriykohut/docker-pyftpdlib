@@ -8,7 +8,7 @@ from pyftpdlib.servers import FTPServer
 FTP_ROOT = '/ftp_root'
 
 
-def run_ftpd(user, password, host='127.0.0.1', port=21, anon=True):
+def run_ftpd(user, password, host, port, anon):
     user_dir = os.path.join(FTP_ROOT, user)
     if not os.path.isdir(user_dir):
         os.mkdir(user_dir)
@@ -28,7 +28,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--user', default='user')
     parser.add_argument('--password', default='password')
-    parser.add_argument('--host', default='127.0.0.1')
+    parser.add_argument('--host', default='0.0.0.0')
     parser.add_argument('--port', type=int, default=21)
     parser.add_argument('--anon', action='store_true')
     args = parser.parse_args()
