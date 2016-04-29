@@ -26,12 +26,18 @@ def run_ftpd(user, password, host, port, anon):
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--user', default='user')
-    parser.add_argument('--password', default='password')
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        '--user', default='user',
+        help="Username for FTP acess (user will be created)")
+    parser.add_argument('--password', default='password',
+                        help="Password for FTP user.")
     parser.add_argument('--host', default='0.0.0.0')
     parser.add_argument('--port', type=int, default=21)
-    parser.add_argument('--anon', action='store_true')
+    parser.add_argument('--anon', action='store_true',
+                        help="Allow anonymous acess")
     args = parser.parse_args()
     run_ftpd(**vars(args))
 
