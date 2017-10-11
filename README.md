@@ -29,7 +29,7 @@ ftp>
 ```
 docker run -it --rm -p 21:21 akogut/docker-pyftpdlib python ftpd.py -h
 usage: ftpd.py [-h] [--user USER] [--password PASSWORD] [--host HOST]
-               [--port PORT] [--anon]
+               [--port PORT] [--passive PASSIVE] [--anon]
 
 optional arguments:
   -h, --help           show this help message and exit
@@ -38,5 +38,6 @@ optional arguments:
   --password PASSWORD  Password for FTP user. (default: password)
   --host HOST
   --port PORT
-  --anon               Allow anonymous acess (default: False)
+  --passive PASSIVE    Range of passive ports (default: 3000-3010)
+  --anon               Allow anonymous access (default: False)
 ```
