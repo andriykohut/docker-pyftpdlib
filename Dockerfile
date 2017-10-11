@@ -1,6 +1,6 @@
 FROM python:2.7.11-slim
 
-MAINTAINER Andriy Kogut "kogut.andriy@gmail.com"
+MAINTAINER MidAmericaCareers "simon@midamericacareers.com"
 
 COPY . /app
 WORKDIR /app
