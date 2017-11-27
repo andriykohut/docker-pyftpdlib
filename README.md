@@ -27,7 +27,7 @@ ftp>
 
 ## Command line arguments:
 ```
-docker run -it --rm -p 21:21 akogut/docker-pyftpdlib python ftpd.py -h
+docker run -it --rm -p 21:21 [-p 3000-3010] akogut/docker-pyftpdlib python ftpd.py -h
 usage: ftpd.py [-h] [--user USER] [--password PASSWORD] [--host HOST]
                [--port PORT] [--passive PASSIVE] [--anon]
 
