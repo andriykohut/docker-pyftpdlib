@@ -1,4 +1,4 @@
-FROM python:2.7.11-slim
+FROM python:3.10-slim
 
 MAINTAINER Andriy Kogut "kogut.andriy@gmail.com"
 
