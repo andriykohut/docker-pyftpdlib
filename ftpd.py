@@ -8,7 +8,7 @@ from pyftpdlib.servers import FTPServer
 FTP_ROOT = '/ftp_root'
 
 
-def run_ftpd(user, password, host, port, passive, anon):
+def run_ftpd(user: str, password: str, host: str, port: int, passive: str, anon: bool) -> None:
     user_dir = os.path.join(FTP_ROOT, user)
     if not os.path.isdir(user_dir):
         os.mkdir(user_dir)
@@ -21,14 +21,15 @@ def run_ftpd(user, password, host, port, passive, anon):
     handler.authorizer = authorizer
     handler.permit_foreign_addresses = True
     
-    passive_ports = map(int, passive.split('-'))
+    passive_ports = [int(p) for p in passive.split('-')]
+    assert len(passive_ports) == 2
     handler.passive_ports = range(passive_ports[0], passive_ports[1])
 
     server = FTPServer((host, port), handler)
     server.serve_forever()
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
